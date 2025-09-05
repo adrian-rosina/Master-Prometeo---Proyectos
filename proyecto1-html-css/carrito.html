@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carrito de compra Pecagusto">
+  <title>Carrito - Pecagusto</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+
+  <div class="banda-envio">
+    🚚 Envíos en 24/48 horas!
+  </div>
+
+ 
+  <header>
+    <img src="imagenes/logo_peca_sin_fondo.png" alt="Logo Pecagusto" class="logo">
+
+
+
+    <a href="#" id="enlace-menu" class="boton-menu">&#9776;</a>
+<nav id="menu" class="menu-principal">
+    <a href="#productos">Productos</a>
+    <a href="#sobre-nosotros">Sobre Nosotros</a>
+    <a href="#portafolio">Recetas</a>
+    <a href="#contacto">Contacto</a>
+    <a href="curriculum.html">Curriculum Adrián Rosiña</a>
+</nav>
+
+    <!-- 🛒 Icono con contador -->
+    <div class="carrito-icono" id="icono-carrito">
+      🛒 <span id="contador-carrito">0</span>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="carrito-pagina">
+      <h2>🛒 Tu carrito de Pecagusto</h2>
+      <div id="carrito-contenido"></div>
+      <p id="total">Total: 0,00 €</p>
+
+      <button onclick="window.location.href='index.html'" class="btn-volver">← Seguir comprando</button>
+    </section>
+
+    <button class="btn-finalizar" onclick="mostrarFormulario()">🛒 Finalizar compra</button>
+
+<div id="formulario-compra" class="formulario-compra" style="display:none;">
+  <h3>Finaliza tu compra</h3>
+  <form id="form-checkout" onsubmit="enviarFormulario(event)">
+    
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{9}" placeholder="Ej: 612345678">
+
+    <label for="direccion">Dirección</label>
+    <input type="text" id="direccion" name="direccion" required>
+
+    <label for="ciudad">Ciudad</label>
+    <input type="text" id="ciudad" name="ciudad" required>
+
+    <label for="provincia">Provincia</label>
+    <input type="text" id="provincia" name="provincia" required>
+
+    <label for="cp">Código postal</label>
+    <input type="text" id="cp" name="cp" required pattern="[0-9]{5}" placeholder="Ej: 28001">
+
+    <label for="pago">Método de pago</label>
+    <select id="pago" name="pago" required>
+      <option value="">Selecciona una opción</option>
+      <option value="tarjeta">Tarjeta de crédito / débito</option>
+      <option value="paypal">PayPal</option>
+      <option value="contra">Pago contra reembolso</option>
+    </select>
+
+    <label for="comentarios">Comentarios adicionales</label>
+    <textarea id="comentarios" name="comentarios" rows="4" placeholder="Opcional"></textarea>
+
+    <div class="botones-formulario">
+      <button type="submit" class="btn-comprar">Confirmar pedido</button>
+      <button type="button" onclick="cancelarFormulario()">Cancelar</button>
+    </div>
+
+  </form>
+</div>
+
+  </main>
+
+  <script src="js/carrito.js"></script>
+
+</body>
+</html>
