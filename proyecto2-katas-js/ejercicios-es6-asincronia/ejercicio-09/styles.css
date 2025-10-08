@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+  
+  img.random-image {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  img.random-image:hover {
+    transform: scale(1.05);
+  }

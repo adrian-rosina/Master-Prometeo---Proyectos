@@ -1,0 +1,74 @@
+/* Estilo general */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #eee;
+  }
+  
+  /* Header */
+  header {
+    background: linear-gradient(135deg, #8b0000, #000);
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #ff4444;
+  }
+  
+  header p {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #ddd;
+  }
+  
+  /* Sección de albums */
+  .album-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #1c1c1c;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+  }
+  
+  .album-section h2 {
+    color: #ff4444;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Lista de albums */
+  .album-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  
+  .album-list li {
+    background: #222;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: 0.3s;
+    cursor: default;
+  }
+  
+  .album-list li:hover {
+    background: #333;
+    transform: scale(1.05);
+    color: #ff4444;
+  }
+  
+  /* Imágenes */
+  .album-list img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+  }
