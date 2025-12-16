@@ -6,3 +6,16 @@ las palabras de la lista original que contengan
 la palabra objetivo.
 '''
 
+frase = "Esto es un contador de palabras en python"
+
+def palabra_objetivo (lista, objetivo):
+    palabra = []
+    for p in lista:
+        if objetivo in p:
+            palabra.append(p)
+    return palabra
+
+palabras = ["caracol","carraca","caracola","cara","carrera"]
+objetivo ="ol"
+
+print(palabra_objetivo(palabras, objetivo))
