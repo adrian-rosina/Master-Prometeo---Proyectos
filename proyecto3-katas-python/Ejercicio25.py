@@ -8,3 +8,4 @@ def contar_caracteres(cadena):
     contar = lambda x: len(x)
     return contar(cadena)
 print(contar_caracteres(frase))
+
