@@ -1,5 +1,6 @@
 '''
-Crea una función que determine si dos palabras son anagramas, es decir, si están formadas por las mismas letras pero en diferente orden.
+Crea una función que determine si dos palabras son anagramas, es decir, si están formadas por las mismas 
+letras pero en diferente orden.
 '''
 
 def son_anagramas(p1, p2):
