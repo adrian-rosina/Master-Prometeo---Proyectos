@@ -5,27 +5,30 @@ class UsuarioBanco:
         self.cuenta_corriente = cuenta_corriente
 
     def retirar_dinero(self, cantidad):
+        if cantidad <= 0:
+            raise ValueError("La cantidad a retirar debe ser positiva.")
         if cantidad > self.saldo:
-            raise Exception(f"{self.nombre} no tiene suficiente saldo para retirar {cantidad}.")
+            raise ValueError(f"{self.nombre} no tiene suficiente saldo para retirar {cantidad}.")
         self.saldo -= cantidad
-
-    def transferir_dinero(self, destino, cantidad):
-        if cantidad > self.saldo:
-            raise Exception(f"{self.nombre} no tiene suficiente saldo para transferir {cantidad}.")
-        if not self.cuenta_corriente or not destino.cuenta_corriente:
-            raise Exception("Ambos usuarios deben tener cuenta corriente para transferencias.")
-        self.saldo -= cantidad
-        destino.saldo += cantidad
 
     def agregar_dinero(self, cantidad):
+        if cantidad <= 0:
+            raise ValueError("La cantidad a agregar debe ser positiva.")
         self.saldo += cantidad
 
-    def __str__(self):
-        return f"{self.nombre} → Saldo: {self.saldo}, Cuenta corriente: {self.cuenta_corriente}"
+    def transferir_dinero(self, otro_usuario, cantidad):
+        if not self.cuenta_corriente:
+            raise PermissionError(f"{self.nombre} no tiene cuenta corriente para realizar transferencias.")
+        if not otro_usuario.cuenta_corriente:
+            raise PermissionError(f"{otro_usuario.nombre} no puede recibir transferencias sin cuenta corriente.")
+        if cantidad <= 0:
+            raise ValueError("La cantidad a transferir debe ser positiva.")
+        if cantidad > self.saldo:
+            raise ValueError(f"{self.nombre} no tiene suficiente saldo para transferir {cantidad}.")
 
-
-# ----- CASO DE USO -----
-
+        # Realizar transferencia
+        self.saldo -= cantidad
+        otro_usuario.saldo += cantidad
 # a. Crear dos usuarios
 alicia = UsuarioBanco("Alicia", 100, True)
 bob = UsuarioBanco("Bob", 50, True)
@@ -40,5 +43,5 @@ bob.transferir_dinero(alicia, 70)
 alicia.retirar_dinero(50)
 
 # Mostrar resultados finales
-print(alicia)
-print(bob)
+print(f"Saldo final de Alicia: {alicia.saldo}")
+print(f"Saldo final de Bob: {bob.saldo}")
