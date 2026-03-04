@@ -1,0 +1,131 @@
+{
+  "info": {
+    "name": "Proyecto Movies y Cines API",
+    "description": "Colección para probar todos los endpoints del servidor (Movies CRUD + Cines CRUD). Base URL: http://localhost:3000",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Movies",
+      "item": [
+        {
+          "name": "GET todas las películas",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/movies"
+          }
+        },
+        {
+          "name": "GET película por id",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/movies/id/{{movieId}}",
+            "description": "Sustituir {{movieId}} por un _id real obtenido de GET todas"
+          }
+        },
+        {
+          "name": "GET películas por título",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/movies/title/Interestelar"
+          }
+        },
+        {
+          "name": "GET películas por género",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/movies/genre/Animación"
+          }
+        },
+        {
+          "name": "GET películas desde año 2010",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/movies/year/2010"
+          }
+        },
+        {
+          "name": "POST crear película",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Origen\",\n  \"director\": \"Christopher Nolan\",\n  \"year\": 2010,\n  \"genre\": \"Ciencia ficción\"\n}"
+            },
+            "url": "http://localhost:3000/movies"
+          }
+        },
+        {
+          "name": "PUT modificar película",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Origen (actualizada)\",\n  \"year\": 2010\n}"
+            },
+            "url": "http://localhost:3000/movies/id/{{movieId}}"
+          }
+        },
+        {
+          "name": "DELETE eliminar película",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:3000/movies/id/{{movieId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cinemas",
+      "item": [
+        {
+          "name": "GET todos los cines",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/cinemas"
+          }
+        },
+        {
+          "name": "GET cine por id",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/cinemas/id/{{cinemaId}}"
+          }
+        },
+        {
+          "name": "POST crear cine",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cine Gran Vía\",\n  \"address\": \"Gran Vía 12\",\n  \"city\": \"Madrid\",\n  \"screens\": 8\n}"
+            },
+            "url": "http://localhost:3000/cinemas"
+          }
+        },
+        {
+          "name": "PUT modificar cine",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"screens\": 10\n}"
+            },
+            "url": "http://localhost:3000/cinemas/id/{{cinemaId}}"
+          }
+        },
+        {
+          "name": "DELETE eliminar cine",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:3000/cinemas/id/{{cinemaId}}"
+          }
+        }
+      ]
+    }
+  ]
+}

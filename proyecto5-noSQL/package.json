@@ -1,0 +1,15 @@
+{
+  "name": "proyecto-basico-express-movies",
+  "version": "1.0.0",
+  "description": "Servidor de películas con Express y MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "seed": "node seeds/movies.seed.js",
+    "seed:cinemas": "node seeds/cinemas.seed.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  }
+}
